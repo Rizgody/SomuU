@@ -1,0 +1,43 @@
+{
+  "name": "wiiu-menu",
+  "productName": "Wii U Menu",
+  "version": "1.0.0",
+  "description": "A Wii U Menu style game launcher for PC games and Cemu",
+  "main": "main.js",
+  "author": "You",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable --x64"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.local.wiiumenu",
+    "productName": "Wii U Menu",
+    "asar": true,
+    "compression": "maximum",
+    "electronLanguages": ["en-US"],
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "assets/**/*",
+      "!**/*.map",
+      "!**/*.md"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [{ "target": "portable", "arch": ["x64"] }]
+    },
+    "portable": {
+      "artifactName": "WiiUMenu-portable.exe"
+    }
+  }
+}
